@@ -6,13 +6,13 @@ import subprocess
 def run_command(command):
     try:
         result = subprocess.run(shlex.split(command), check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        print(result.stdout.decode())  # Bytes to str conversion
+        print(result.stdout.strip())  # Bytes to str conversion
     except subprocess.CalledProcessError as e:
         print(f"Hata: {e.stderr}")
 
 def main():
     while True:
-        prompt = "┌──(termq@localhost)-[~]\n└─$ "
+        prompt = "┌──(kali㉿localhost)-[~]\n└─$ "
         command = input(prompt)
         
         if not command.strip():
